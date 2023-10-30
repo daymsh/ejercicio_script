@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generador de Contraseña</h1>
+    <p>Ingrese sus datos:</p>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre"><br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido"><br>
+
+    <label for="ci">Número de CI:</label>
+    <input type="text" id="ci"><br>
+
+    <button onclick="generarYMostrarPassword()">Generar Contraseña</button>
+    <p id="resultado"></p>
+
+    <script>
+        function generarPassword(nombre, apellido, ci) {
+            // Obtener las dos primeras letras del apellido y nombre
+            const primerasLetrasApellido = apellido.slice(0, 2);
+            const primerasLetrasNombre = nombre.slice(0, 2);
+
+            // Generar el password concatenando las letras y el número de CI
+            const password = primerasLetrasApellido + primerasLetrasNombre + ci;
+
+            return password;
+        }
+
+        function generarYMostrarPassword() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const ci = document.getElementById("ci").value;
+
+            const password = generarPassword(nombre, apellido, ci);
+            document.getElementById("resultado").textContent = "Password generado: " + password;
+        }
+    </script>
+</body>
+</html>
+Este código HTML incluye un formulario simple con campos de entrada para el nombre, apellido y número de CI, junto con un botón para generar la contraseña. Cuando el usuario hace clic en el botón, se llama a la función generarYMostrarPassword(), que obtiene los valores de los campos de entrada, genera la contraseña y la muestra en la página.
+
+
+
+
+
+
+</body>
+</html>
